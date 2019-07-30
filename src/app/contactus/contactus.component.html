@@ -1,0 +1,93 @@
+
+			<!-- <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+				<div class="flex-w size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-map-marker"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Address
+						</span>
+
+						<span class="txt2">
+							Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-phone-handset"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Lets Talk
+						</span>
+
+						<span class="txt3">
+							+1 800 1236879
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-envelope"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							General Support
+						</span>
+
+						<span class="txt3">
+							contact@example.com
+						</span>
+					</div>
+				</div>
+			</div>
+ -->
+ <div style="margin-top: 30px; margin-left:180px; height:500px; width:370px; border: 2px #F9F9F9; background-color:#F9F9F9">
+<br>
+  <div style="margin-top: 50px; margin-left:80px;"><span><b><h4 >Address</h4></b></span><br>
+  <span><h5>Shop no. B-110,B-Block,1st Floor,<br>
+      City Center, Mobile Market,<br>
+      Hubtown, New S.T. Stand,<br>
+      GeetaMandir, Ahmedabad.
+</h5></span>
+</div>
+<div style="margin-top: 50px; margin-left:80px;"><span><b><h4 >Lets Talk</h4></b></span><br>
+  <span><h5>+91 8320375617</h5></span>
+</div>
+<div style="margin-top: 50px; margin-left:80px;"><span><b><h4 >General Support</h4></b></span><br>
+  <span><h5>lalitprajapati1998@gmail.com</h5></span>
+</div>
+
+ </div>
+      <div class="container" >
+          <form id="contact" (ngSubmit)="addform(f)" #f="ngForm" action="" method="post" style="height:500px; width: 550px; margin-top: -500px;">
+
+
+            <h3>Quick Contact</h3>
+            <h4>Contact us today, and get reply with in 24 hours!</h4>
+            <fieldset>
+              <input placeholder="Your name" type="text" tabindex="1" [(ngModel)]="Name" name="Name" required autofocus>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Your Email Address" type="email" tabindex="2" [(ngModel)]="Email" name="Email" required>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Your Phone Number" type="tel" tabindex="3" [(ngModel)]="Mobile_no" name="Mobile_no" required>
+            </fieldset>
+            <fieldset>
+              <textarea placeholder="Type your Message Here...." tabindex="5" [(ngModel)]="Message" name="Message" required></textarea>
+            </fieldset>
+            <fieldset>
+              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" (click)="onsubmit()">Submit</button>
+            </fieldset>
+          </form>
+
+
+        </div>

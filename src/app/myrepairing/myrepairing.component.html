@@ -1,0 +1,35 @@
+<div class="col-md-12" >
+    <div class="order-summary clearfix">
+      <div class="section-title">
+        <h3 class="title">My Repairing Order</h3>
+      </div>
+      <table class="shopping-cart-table table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th class="text-center">Problem Specification</th>
+            <th class="text-center">Delivery Date</th>
+            <th class="text-center">Amount</th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of repair_arr,let i=index">
+            <td class="details">
+              <a href="#">{{item.model_no}}</a>
+            </td>
+            <td class="price text-center"><strong>{{item.problem_spec}}</strong>
+            <td class="total text-center"><strong >{{item.repair_date | date}}</strong></td>
+            <td class="price text-center" >
+                <!-- <input class="input" type="number" value="1" min="1" max="item1" name="qty[i]" [(ngModel)]="qty[i]" [attr.max]="no_arr2[i]"   (change)="onchange(item1,i)"> -->
+                <strong class="primary-color">{{item.repair_amt}}</strong>
+              </td>
+
+            <td class="text-right">
+                <button class="primary-btn" (click)="openDialog()">Done</button>
+          </td>
+           </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

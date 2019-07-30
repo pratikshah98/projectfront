@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <b style="font-size: 40px;">Repair Order Management</b>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-10">
+  <div class="col-md-2">
+
+    </div>
+  </div>
+</div>
+<mat-form-field style="width:1300px;">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Order">
+</mat-form-field>
+
+<table mat-table [dataSource]="repairSource" class="mat-elevation-z8" matSort>
+
+  <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+    <td mat-cell *matCellDef="let element"> {{element.Action}}
+      <mat-checkbox (change)="checkchangeOrder(element)"></mat-checkbox>
+    </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="repair_order_amt">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <b>AMOUNT</b>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.repair_order_amt | currency:'INR':'symbol-narrow':'3.2-2'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="repair_order_date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <b>DATE</b>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.repair_order_date | date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="model_no">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <b>MODEL NO</b>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.model_no}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>
+      <b>ACTION</b>
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.action}}
+      <button mat-mini-fab color="Accent" (click)="onUpdatestatus(element)">
+        <mat-icon aria-label="Example icon-button with a heart icon">create</mat-icon>
+      </button>
+      &nbsp;
+
+      <button mat-mini-fab color="Accent" (click)="onDelete(element)">
+        <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+<button mat-raised-button color="warn" (click)="onMultipledel()">DELETE ALL
+  <mat-icon> delete_forever</mat-icon>
+</button>

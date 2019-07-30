@@ -1,0 +1,101 @@
+<h4><b>Update Product</b></h4>
+
+<div class="container">
+  <form (ngSubmit)="addform(f)" #f="ngForm">
+
+    <div class="container">
+      <div class="form-group">
+       <label>PRODUCT NAME</label>
+        <br>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter Product name" name="pro_name" [(ngModel)]="pro_name" id="pro_name" required  #proname="ngModel">
+        </mat-form-field>
+          <div [hidden]="proname.valid ||  proname.untouched">
+           <div [hidden]="!proname?.errors?.required"></div>
+             <mat-error>Product Name is required</mat-error>
+          </div>
+
+
+
+         </div>
+              <div class="form-group">
+                <label>PRODUCT IMAGE</label>
+                <div class="form-control">
+                <input type="file" (change)="onchange($event)"width="50px"></div>
+          </div>
+         <label>PRODUCT COLOR</label>
+           <br>
+           <mat-form-field class="example-full-width">
+            <mat-select placeholder="Select color" [(ngModel)]="pro_color" name="pro_color"
+            required id="pro_color" #procolor="ngModel">
+              <mat-option *ngFor="let item of color" [value]="item">{{item}}</mat-option>
+            </mat-select>
+            <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+          </mat-form-field>
+          <div [hidden]="procolor.valid ||  procolor.untouched">
+            <div [hidden]="!procolor?.errors?.required"></div>
+            <mat-error>Product color is required</mat-error>
+          </div>
+
+          <div class="form-group">
+            <label>PRODUCT PRICE</label>
+             <br>
+             <mat-form-field class="example-full-width">
+               <input matInput placeholder="Enter Product price" id="pro_price" required name="pro_price"
+                #proprice="ngModel" [(ngModel)]="pro_price">
+              </mat-form-field>
+                        <div [hidden]="proprice.valid ||  proprice.untouched">
+                 <div [hidden]="!proprice?.errors?.required"></div>
+                  <mat-error>Product Price  is required</mat-error>
+               </div>
+
+
+              <label>PRODUCT SOH</label>
+              <br>
+               <mat-form-field class="example-full-width">
+                  <mat-select placeholder="Select Soh" [(ngModel)]="pro_soh" name="pro_soh">
+                    <mat-option *ngFor="let item of soharr" [value]="item">{{item}}</mat-option>
+                  </mat-select>
+                  <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                </mat-form-field>
+
+                <div class="form-group">
+                  <label>PRODUCT MFG</label>
+                   <br>
+                   <mat-form-field class="example-full-width">
+                     <input matInput placeholder="Enter Product Mfg" id="pro_mfg" required
+                      name="pro_mfg"
+                     #promfg="ngModel" [(ngModel)]="pro_mfg">
+                    </mat-form-field>
+                              <div [hidden]="promfg.valid ||  promfg.untouched">
+                       <div [hidden]="!promfg?.errors?.required"></div>
+                        <mat-error>Product Mfg is required</mat-error>
+                     </div>
+
+                    </div>
+
+                  <div class="form-group">
+                  <label>PRODUCT DESC</label>
+                   <br>
+                  <mat-form-field class="example-full-width">
+                      <textarea matInput placeholder="Enter Decription" [(ngModel)]="pro_desc" name="pro_desc"></textarea>
+                    </mat-form-field>
+                  </div>
+
+                  <label>CATEGORY NAME</label>
+                  <br>
+                  <mat-form-field class="example-full-width">
+                   <mat-select placeholder="Select Category" [(ngModel)]="fk_cat_id" name="fk_cat_id">
+                     <mat-option *ngFor="let item of cat_arr" [value]="item.cat_id">{{item.cat_name}}</mat-option>
+                   </mat-select>
+                   <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                 </mat-form-field>
+
+
+
+
+         <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" (click)="onUpdateProduct()">Update</button>
+         <button mat-raised-button color="warn" (click)="oncancel()">Cancel</button>
+
+
+  </div>

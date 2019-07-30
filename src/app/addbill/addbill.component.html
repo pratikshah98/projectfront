@@ -1,0 +1,74 @@
+<!-- <h1>ADD BILL</h1>
+<div class="container">
+  <form (ngSubmit)="addform(f)" #f="ngForm">
+
+    <div class="container">
+      <div class="form-group">
+        <label>User Name</label>
+        <br>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter User Name" name="name" [(ngModel)]="name" id="name" required #name1="ngModel">
+        </mat-form-field>
+        <div [hidden]="name1.valid ||  name1.untouched">
+          <div [hidden]="!name1?.errors?.required"></div>
+          <mat-error>User Name is required</mat-error>
+        </div>
+      </div>
+
+
+    <div class="container">
+      <div class="form-group">
+        <label>BILL AMOUNT</label>
+        <br>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter Bill Amount" name="bill_amount" [(ngModel)]="bill_amount" id="bill_amount" required #billamount="ngModel">
+        </mat-form-field>
+        <div [hidden]="billamount.valid ||  billamount.untouched">
+          <div [hidden]="!billamount?.errors?.required"></div>
+          <mat-error>Bill Amount is required</mat-error>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>BILL DATE</label>
+        <br>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <label>QTY</label>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Soh" [(ngModel)]="qty" name="qty"
+        required id="qty" #qty1="ngModel">
+          <mat-option *ngFor="let item of soharr" [value]="item">{{item}}</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+      </mat-form-field>
+      <div [hidden]="qty1.valid ||  qty1.untouched">
+        <div [hidden]="!qty1?.errors?.required"></div>
+        <mat-error>Product SOH is required</mat-error>
+      </div>
+
+      <label>Product</label>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Soh" [(ngModel)]="product_name" name="product_name"
+        required id="prodct_name" #productname="ngModel">
+          <mat-option *ngFor="let item of product_arr" [value]="item.pro_name">{{item.pro_name}}</mat-option>
+        </mat-select>
+        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+      </mat-form-field>
+      <div [hidden]="productname.valid ||  productname.untouched">
+        <div [hidden]="!productname?.errors?.required"></div>
+        <mat-error>Product Name is required</mat-error>
+      </div>
+        <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" (click)="onaddBill()">Add</button>
+        <button mat-raised-button color="warn" (click)="oncancel()">Cancel</button>
+      </div>
+
+ -->

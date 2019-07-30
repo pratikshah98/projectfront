@@ -1,0 +1,45 @@
+<div class="section">
+		<div class="container">
+			<div class="row">
+
+  <div class="col-md-12" >
+    <div class="order-summary clearfix">
+      <div class="section-title">
+        <h3 class="title">Pastorder Review</h3>
+      </div>
+      <table class="shopping-cart-table table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Name</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">qty</th>
+            <th class="text-right">mfg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of userbill_arr">
+            <td class="thumb"><img src="{{'http://localhost:3000/images/product/'+item.pro_img}}" alt="no image" height="50px" width="50px"></td>
+            <td class="details">
+              <a href="#">{{item.pro_name}}</a>
+            </td>
+            <td class="price text-center"><strong>{{item.pro_price}}</strong>
+            <td class="qty text-center" >
+                <strong>{{item.qty}}</strong>
+
+            </td>
+            <td class="text-right">
+                <strong>{{item.pro_mfg}}</strong>
+    </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+

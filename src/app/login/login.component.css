@@ -1,0 +1,43 @@
+/* /* .example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+} */
+.div1{
+  border-radius:15px;
+  border:1px solid rgb(19, 18, 18,0.1);
+  height:500px;
+  width:420px;
+  position:relative;
+  margin-top:130px;
+  margin-left:-70px;
+  padding:10px;
+  /* background-color:palegoldenrod ; */
+  background-color:whitesmoke ;
+  box-shadow:10px 10px 10px;
+  }
+.example-full-width {
+  margin-left:10px;
+  width:92%;
+  margin-top:10px;
+  font-size: 17px;
+}
+body{
+   background-repeat: no-repeat;
+   width: 100vw;
+   height: 100vh;
+    background-image:url("../../assets/m5.jpg");
+   background-size:100%;
+  }
+
+  .left{
+    margin-left: 10px;
+  }
+
+
+
+

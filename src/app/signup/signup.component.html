@@ -1,0 +1,175 @@
+<!-- <h3>Add-User</h3>
+
+          <form (ngSubmit)="addform(f)" #f="ngForm">
+              <div class="container" >
+
+          <div class="form-group">
+              <input class="input" type="email" name="email_id" placeholder="Email Id"
+              id="email_id" required
+                 name="email_id"
+                #emailid="ngModel" [(ngModel)]="email_id">
+                <div [hidden]="emailid.valid ||  emailid.untouched">
+                    <div [hidden]="!emailid?.errors?.required"></div>
+                     <mat-error style="font-size: 10px;">Email Id is required</mat-error>
+                  </div>
+
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="last-name" placeholder="User Name" id="user_name" required
+              name="user_name"
+             #username="ngModel" [(ngModel)]="user_name">
+             <div [hidden]="username.valid ||  username.untouched">
+                <div [hidden]="!username?.errors?.required"></div>
+                 <mat-error style="font-size: 10px;">Username Name is required</mat-error>
+              </div>
+
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width">
+
+                  <input [type] = "flag ? 'password' : 'text'"  spellcheck="false" matInput placeholder="Enter your password" required name = "password" [(ngModel)]="password" #pass="ngModel" maxlength="15" minlength="8">
+                <mat-error *ngIf="pass.hasError('required')">Please enter your password</mat-error>
+                <mat-error *ngIf="!pass.hasError('required')">Password must have 8 characters</mat-error>
+                 <mat-icon matSuffix (click)="flag = !flag">{{flag ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-hint align="end">{{pass.value?.length}}/15</mat-hint>
+                  </mat-form-field>
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="address" placeholder="Address" name="address" [(ngModel)]="address" id="address" required #address1="ngModel">
+              <div [hidden]="address1.valid ||  address1.untouched">
+                  <div [hidden]="!address1?.errors?.required"></div>
+                  <mat-error style="font-size: 10px;">address is required</mat-error>
+                </div>
+         </div>
+         <div class="form-group">
+
+         <input type="radio" name="gender" [(ngModel)]="gender" value="Male" [checked]="gender_arr" style="height:17px; width:17px;">&nbsp;&nbsp; Male
+            <input type="radio" name="gender" [(ngModel)]="gender" value="Female" style="height:17px; width:17px; ">&nbsp;&nbsp; Female
+
+           </div>
+
+            <div class="form-group">
+                 <span matPrefix>+91 &nbsp;</span>
+               <input class="input"  type="tel" placeholder="Telephone" name="mobile_no" [(ngModel)]="mobile_no" id="mobile_no" required maxlength="10" minlength="10" #mobileno="ngModel" >
+              <mat-icon matSuffix>mode_edit</mat-icon>
+              <div [hidden]="mobileno.valid ||  mobileno.untouched">
+                  <div [hidden]="!mobileno?.errors?.required"></div>
+                  <mat-error style="font-size: 10px;"> Mobile is required</mat-error>
+                </div>
+          </div>
+          <div class="form-group">
+              <select class="input" placeholder="City" name="city"  [(ngModel)]="city" name="city" required
+              id="city" #city1="ngModel">
+                <option *ngFor="let item of city_arr" [value]="item">{{item}}</option>
+              </select>
+              <mat-hint style="margin-left: 960px;" align="end">Here's the dropdown arrow ^</mat-hint>
+            <div [hidden]="city1.valid ||  city1.untouched">
+              <div [hidden]="!city1?.errors?.required"></div>
+              <mat-error style="font-size: 10px;">City is required</mat-error>
+            </div>
+                </div>
+
+                <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" (click)="onaddUser()">Add</button>
+                <button mat-raised-button color="warn" (click)="oncancel()">Cancel</button>
+             </div> -->
+             <div class="container">
+                <h3>Sign-Up</h3>
+
+                <form (ngSubmit)="addform(f)" #f="ngForm">
+                    <div class="container" >
+                      <div class="form-group">
+                          <div>
+                          <b>Email Id</b>
+                          </div>
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Enter Email Id" id="email_id" required
+                             name="email_id"
+                            #emailid="ngModel" [(ngModel)]="email_id">
+
+                           </mat-form-field>
+                           <div [hidden]="emailid.valid ||  emailid.untouched">
+                              <div [hidden]="!emailid?.errors?.required"></div>
+                               <mat-error style="font-size: 10px;">Email Id is required</mat-error>
+                            </div>
+                            </div>
+                            <div>
+                         <b>USER NAME</b>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Enter User name" id="user_name" required
+                           name="user_name"
+                          #username="ngModel" [(ngModel)]="user_name">
+
+                         </mat-form-field>
+                         <div [hidden]="username.valid ||  username.untouched">
+                            <div [hidden]="!username?.errors?.required"></div>
+                             <mat-error style="font-size: 10px;">Username Name is required</mat-error>
+                          </div>
+                          <div>
+                              <b>PASSWORD</b>
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Enter password" [type]="hide ? 'password' : 'text'" type="password" name="password" [(ngModel)]="password" id="password"
+                                  required #pass="ngModel">
+                                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </mat-form-field>
+
+                              <div [hidden]="pass.valid ||  pass.untouched">
+                                <div [hidden]="!pass?.errors?.required"></div>
+                                <mat-error style="font-size: 10px;">Password is required</mat-error>
+                              </div>
+                            </div>
+                            <div>
+                                <b>ADDRESS</b>
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Address" name="address" [(ngModel)]="address" id="address" required #address1="ngModel">
+                                </mat-form-field>
+                                <div [hidden]="address1.valid ||  address1.untouched">
+                                  <div [hidden]="!address1?.errors?.required"></div>
+                                  <mat-error style="font-size: 10px;">address is required</mat-error>
+                                </div>
+                              </div>
+
+                                <div>
+                                    <b>MOBILE NO</b>
+                                     <mat-form-field class="example-full-width">
+                                    <span matPrefix>+91 &nbsp;</span>
+                                    <input type="tel" matInput placeholder="Telephone" name="mobile_no" [(ngModel)]="mobile_no" id="mobile_no" required maxlength="10" minlength="10" #mobileno="ngModel">
+                                    <mat-icon matSuffix>mode_edit</mat-icon>
+                                  </mat-form-field>
+                                <div [hidden]="mobileno.valid ||  mobileno.untouched">
+                                  <div [hidden]="!mobileno?.errors?.required"></div>
+                                  <mat-error style="font-size: 10px;"> Mobile is required</mat-error>
+                                </div>
+                              </div>
+                              <div>
+                                  <b>GENDER</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       <mat-radio-group class="example-radio-group" name="gender" [(ngModel)]="gender" value="MALE">
+                                  <mat-radio-button class="example-radio-button" *ngFor="let item of gender_arr" [value]="item" [checked]="gender_arr">
+                                    {{item}}
+                                  </mat-radio-button>
+                                </mat-radio-group>
+                              </div>
+                            <div>
+                                <b>CITY</b>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <mat-form-field class="example-full-width">
+                              <mat-select placeholder="City" [(ngModel)]="city" name="city" required
+                              id="city" #city1="ngModel">
+                                <mat-option *ngFor="let item of city_arr" [value]="item">{{item}}</mat-option>
+                              </mat-select>
+                              <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                            </mat-form-field>
+                            <div [hidden]="city1.valid ||  city1.untouched">
+                              <div [hidden]="!city1?.errors?.required"></div>
+                              <mat-error style="font-size: 10px;">City is required</mat-error>
+                            </div>
+                            </div>
+
+
+
+
+                       <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" (click)="onaddUser()">Add</button>
+                       <button mat-raised-button color="warn" (click)="oncancel()">Cancel</button>
+                    </div>
+                      </div>
+
+

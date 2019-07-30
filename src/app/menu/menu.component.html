@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary" routerLink=""(click)="onclickmenu()">MENU</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink=" ">  <img src="{{'http://localhost:3000/images/product/home.png'}}" height="45px" width="50px"><td >
+      <td><b><h4 style="font-size: 14px;">Home</h4></b></td></a>
+      <a mat-list-item routerLink="adminprofile">  <img src="{{'http://localhost:3000/images/product/viewprofile.jpg'}}" height="40px" width="40px"><td >
+      <td><b><h4 style="font-size: 14px;">View Profile</h4></b></td></a>
+      <a mat-list-item routerLink="category"><img src="{{'http://localhost:3000/images/product/category.png'}}" height="40px" width="40px"><td >
+        <td><b><h4 style="font-size: 14px;">Manage Category</h4></b></td></a>
+      <a mat-list-item routerLink="product"><img src="{{'http://localhost:3000/images/product/product1.jpg'}}" height="40px" width="40px"><td >
+        <td><b><h4 style="font-size: 14px;">Manange Product</h4></b></td></a>
+      <a mat-list-item routerLink="order"><img src="{{'http://localhost:3000/images/product/order.png'}}" height="40px" width="40px"><td >
+        <td><b><h4 style="font-size: 14px;">Manage Order</h4></b></td></a>
+      <a mat-list-item routerLink="repair"><img src="{{'http://localhost:3000/images/product/repair.jpg'}}" height="40px" width="40px"><td >
+          <td><b><h4 style="font-size: 14px;">Manage Reparing</h4></b></td></a>
+      <a mat-list-item routerLink="manageuser"><img src="{{'http://localhost:3000/images/product/user.png'}}" height="40px" width="40px"><td >
+          <td><b><h4 style="font-size: 14px;">Manage User</h4></b></td></a>
+      <a mat-list-item routerLink="bill"><img src="{{'http://localhost:3000/images/product/bill.jpg'}}" height="40px" width="40px"><td >
+          <td><b><h4 style="font-size: 14px;">Manage Bill</h4></b></td></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">
+
+        </mat-icon>
+      </button>
+      <span><img src="{{'http://localhost:3000/images/product/logo1.jpg'}}" style="height:53px; width:140px; " ></span>
+      <button mat-raised-button color="accent" style="margin-left: 900px;" (click)="onclick()">LOGOUT</button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

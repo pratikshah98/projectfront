@@ -1,0 +1,81 @@
+
+<div style="height:800px; width:1200px;">
+    <form class="review-form" (ngSubmit)="addform(f)" #f="ngForm">
+        <div class="form-group" style="margin-left:400px; margin-top:30px;">
+          <input class="input" type="text" placeholder="Your Name" name="user_name" [(ngModel)]="pro_name"  style="width:600px;">
+        </div>
+        <div class="form-group" style="margin-left:400px; margin-top:30px;">
+          <select style="width:600px; height:40px;" [(ngModel)]="pro_id" name="pro_id" (selectionChange)="onChange()">
+            <option *ngFor="let item of pro_arr" [value]="item.pro_id">{{item.pro_name}}</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-left:400px; margin-top:30px;" >
+
+        <button class="primary-btn" type="submit" (click)="onAdd()">Submit</button>
+        </div>
+       </form>
+       <div class="col-md-3 col-sm-6 col-xs-6" style="margin-left:400px; margin-top:30px;" *ngIf="flag1">
+          <div class="product product-single" *ngFor="let item of pro_arr1">
+            <div class="product-thumb">
+              <div class="product-label">
+                <span>New</span>
+                <span class="sale">-20%</span>
+              </div>
+              <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+              <img src="{{'http://localhost:3000/images/product/'+item.pro_img}}" alt="" height="250px" width="200px">
+            </div>
+            <div class="product-body">
+              <h3 class="product-price">{{item.pro_price}} </h3>
+
+
+              <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o empty"></i>
+              </div>
+              <h2 class="product-name">NAME  :{{item.pro_name}}</h2>
+              <h2 class="product-name"><a>COLOR :{{item.pro_color}}</a></h2>
+              <h2 class="product-name"><a>MFG  :{{item.pro_mfg}}</a></h2>
+              <h2 class="product-name">DESC :{{item.pro_desc}}</h2>
+              <div class="product-btns">
+                <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                <button class="primary-btn add-to-cart" (click)="onAddToCart(item)"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-6"  style="margin-left:800px; margin-top:-517px;" *ngIf="flag1">
+          <div class="product product-single" *ngFor="let item of pro_arr2" >
+            <div class="product-thumb">
+              <div class="product-label">
+                <span>New</span>
+                <span class="sale">-20%</span>
+              </div>
+              <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+              <img src="{{'http://localhost:3000/images/product/'+item.pro_img}}" alt="" height="250px" width="200px">
+            </div>
+            <div class="product-body">
+              <h3 class="product-price">{{item.pro_price}}</h3>
+              <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o empty"></i>
+              </div>
+              <h2 class="product-name"><a>NAME :{{item.pro_name}}</a></h2>
+              <h2 class="product-name"><a>COLOR :{{item.pro_color}}</a></h2>
+              <h2 class="product-name"><a>MFG :{{item.pro_mfg}}</a></h2>
+              <h2 class="product-name">DESC :{{item.pro_desc}}</h2>
+              <div class="product-btns">
+                <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                <button class="primary-btn add-to-cart" (click)="onAddToCart(item)"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+</div>

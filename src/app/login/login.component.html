@@ -1,0 +1,69 @@
+<body>
+    <div class = "container">
+        <div class = "rows">
+            <div class = "col-md-3 col-sm-3"></div>
+            <div class = "col-md-2 col-sm-2">
+                <div class = "div1">
+                  <form (ngSubmit)="addform(f)" #f="ngForm">
+                  <div class = "rows" height = "150">
+                    <div class = "col-md-3 col-sm-3"></div>
+                    <div class = "col-md-4 col-sm-4">
+                       <img src = "../../assets/logo1.jpg" style = "margin-top:10px;" height = "150" width = "150"  >
+                    </div>
+                  </div>
+
+                  <div class = "rows" height = "50">
+                      <div class="example-container">
+                      <mat-form-field class = "example-full-width">
+                          <input autocomplete="off" spellcheck="false" matInput placeholder="Enter your email" required email name = "email_id" [(ngModel)]="email_id" #Username="ngModel">
+                          <mat-error *ngIf="Username.hasError('required')">Please enter your email id</mat-error>
+                          <mat-error *ngIf="!Username.hasError('required')">Please enter valid email id</mat-error>
+                      </mat-form-field>
+                      </div>
+                    </div>
+
+                  <div class = "rows" height = "50" >
+                      <div class="example-container" >
+                      <mat-form-field class = "example-full-width">
+                          <input [type] = "flag ? 'password' : 'text'"  spellcheck="false" matInput placeholder="Enter your password" required name = "password" [(ngModel)]="password" #Password="ngModel" maxlength="15" minlength="8">
+                          <mat-error *ngIf="Password.hasError('required')">Please enter your password</mat-error>
+                          <mat-error *ngIf="!Password.hasError('required')">Password must have 8 characters</mat-error>
+
+                          <mat-icon matSuffix (click)="flag = !flag">{{flag ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          <mat-hint align="end">{{Password.value?.length}}/15</mat-hint>
+                        </mat-form-field>
+                        </div>
+                  </div>
+
+                  <div class = "rows" height = "50">
+                    <div class="left">
+                       <a [routerLink]="['menu/forget']"><p style = "color:darkblue">
+                        <b>Forgot Password?</b></p></a>
+                        </div>
+                  </div>
+
+                  <div class = "rows" height = "50">
+                      <div class="left">
+                         <a [routerLink]="['usermenu/signup']"><p style = "color:darkblue">
+                          <b>New User?</b></p></a>
+                          </div>
+                    </div>
+
+
+                  <div class = "rows" height = "50" style = "margin-top:50px;">
+                      <div class = "col-md-4 col-sm-4"></div>
+                      <div class = "col-md-4 col-sm-4">
+                      <button type="submit" mat-raised-button color="primary" (click)="onSubmit()" [disabled]= "((email_id=='' || password=='') || !f.valid) " >Login
+                          <mat-icon aria-label="Example icon-button with a heart icon">person</mat-icon>
+                      </button>
+                      </div>
+                  </div>
+
+
+                 </form>
+               </div>
+
+            </div>
+        </div>
+    </div>
+    </body>

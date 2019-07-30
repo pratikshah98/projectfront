@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    </div>
+<h4><b>BillDetail Mangement</b></h4>
+  </div>
+<mat-form-field style="width:1300px;">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Order">
+</mat-form-field>
+
+<table mat-table [dataSource]="billdetailSource" class="mat-elevation-z8" matSort>
+
+  <ng-container matColumnDef="pro_img">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> PRODUCT IMAGE </th>
+    <td mat-cell *matCellDef="let element">  <img src="{{'http://localhost:3000/images/product/'+element.pro_img}}" height="50px" width="50px"></td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="pro_name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <b>AMOUNT</b>
+    </th>
+      <td mat-cell *matCellDef="let element"> {{element.pro_name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <b>PRICE</b>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="qty">
+    <th mat-header-cell *matHeaderCellDef>
+      <b>QUANTITY</b>
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.qty}}
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>

@@ -1,0 +1,229 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="360px" (click)="onclick()">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h4>TOP 3 ORDER</h4>
+            <button
+              mat-icon-button
+              class="more-button"
+              [matMenuTriggerFor]="menu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <table
+              mat-table
+              [dataSource]="orderSource"
+              class="mat-elevation-z8"
+              matSort
+            >
+            <ng-container matColumnDef="user_name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <b style="margin-left:110px;">Name</b>
+              </th>
+              <td mat-cell *matCellDef="let element"><p style="margin-left:-80px;">{{ element.user_name }}</p></td>
+            </ng-container>
+
+          <ng-container matColumnDef="order_date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <b style="margin-left: 200px">DATE</b>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                  <p style="margin-left: -130px;">{{ element.order_date | date }}</p>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="order_amount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <b>AMOUNT</b>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <p style="margin-left: -130px;">
+                  {{
+                    element.order_amount
+                      | currency: "INR":"symbol-narrow":"3.2-2"
+                  }}</p>
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[3,0,0]"></mat-paginator>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+              <h4>TOP 3 Repairing</h4>
+            <button
+              mat-icon-button
+              class="more-button"
+              [matMenuTriggerFor]="menu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content" (click)="onclick1()">
+          <div>
+            <table mat-table [dataSource]="repairSource" class="mat-elevation-z8" matSort>
+              <ng-container matColumnDef="model_no">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Model Name  </th>
+                <td mat-cell *matCellDef="let element"> {{element.model_no}}
+                </td>
+
+              </ng-container>
+              <ng-container matColumnDef="problem_spec">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> <b>Problem Details</b> </th>
+                <td mat-cell *matCellDef="let element"> {{element.problem_spec}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> <b>Status</b> </th>
+                <td mat-cell *matCellDef="let element">{{element.status}}
+                </td>
+              </ng-container>
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[3,0,0]"></mat-paginator>
+
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h4>Today's Order</h4>
+            <button
+              mat-icon-button
+              class="more-button"
+              [matMenuTriggerFor]="menu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <table mat-table [dataSource]="OrderSource" class="mat-elevation-z8" matSort>
+
+              <ng-container matColumnDef="user_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> <b style="margin-left:50px;">Name</b>  </th>
+                <td mat-cell *matCellDef="let element"> <p style="margin-left:-50px;">{{element.user_name}}</p>
+                </td>
+
+              </ng-container>
+              <ng-container matColumnDef="order_amount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> <b>Order_Amount</b> </th>
+                <td mat-cell *matCellDef="let element"> <p style="margin-left:-80px;">{{element.order_amount}}</p> </td>
+              </ng-container>
+
+              <ng-container matColumnDef="order_date">
+                <th mat-header-cell *matHeaderCellDef> <b>Order_Date </b></th>
+                <td mat-cell *matCellDef="let element"><p style="margin-left:-80px;">{{element.order_date | date}}</p>
+              </td>
+              </ng-container>
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns3"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[3,0,0]"></mat-paginator>
+
+
+          </div>
+
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+              <h4>TOP 3 PRODUCT</h4>
+            <button
+              mat-icon-button
+              class="more-button"
+              [matMenuTriggerFor]="menu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content" (click)="onclick2()">
+          <div>
+            <table mat-table [dataSource]="ProductSource" class="mat-elevation-z8" matSort>
+
+              <ng-container matColumnDef="pro_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <b style="margin-left:100px;">NAME</b>
+                </th>
+                <td mat-cell *matCellDef="let element"><p style="margin-left:-80px;"> {{element.pro_name}} </p></td>
+              </ng-container>
+
+              <ng-container matColumnDef="pro_price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <b style="margin-left: 200px">PRICE</b>
+                </th>
+                <td mat-cell *matCellDef="let element"> <p style="margin-left: -130px;">{{element.pro_price | currency:'INR':'symbol-narrow':'3.2-2'}}</p> </td>
+              </ng-container>
+
+              <ng-container matColumnDef="pro_img" style="border-radius: 20px;">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <b>IMAGE</b>
+                </th>
+                <td mat-cell *matCellDef="let element"> <p style="margin-left: -130px;">
+                  <img src="{{'http://localhost:3000/images/product/'+element.pro_img}}" height="50px" width="50px"></p> </td>
+                 </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[3,0,0]"></mat-paginator>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

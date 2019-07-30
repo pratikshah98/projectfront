@@ -1,0 +1,181 @@
+<div class="section" style="margin-left:300px">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="product product-details clearfix">
+        <div class="col-md-6">
+          <div id="product-main-view">
+            <div class="product-view" style="margin-left: 10px;">
+
+              <img src="{{'http://localhost:3000/images/product/'+pro_img}}"  alt="" height="363px" width="390px" >
+
+            </div>
+            <div class="product-view">
+              <img src="./img/main-product02.jpg" alt="">
+            </div>
+            <div class="product-view">
+              <img src="./img/main-product03.jpg" alt="">
+            </div>
+            <div class="product-view">
+              <img src="./img/main-product04.jpg" alt="">
+            </div>
+          </div>
+          <div id="product-view">
+            <div class="product-view">
+              <img src="./img/thumb-product01.jpg" alt="">
+            </div>
+            <div class="product-view">
+              <img src="./img/thumb-product02.jpg" alt="">
+            </div>
+            <div class="product-view">
+              <img src="./img/thumb-product03.jpg" alt="">
+            </div>
+            <div class="product-view">
+              <img src="./img/thumb-product04.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" >
+          <div class="product-body">
+            <div class="product-label">
+              <span>New</span>
+            </div>
+            <h2 class="product-name">{{pro_name}}</h2>
+           <h4 class="product-name"> Availability:<strong style="font-size: 17px;">In-stock</strong></h4>
+           <h4 class="product-name"> Brand:<strong style="font-size: 17px;">{{pro_mfg}}</strong></h4>
+           <h4 class="product-name"> Price:<strong style="font-size: 17px;">{{pro_price}}</strong></h4>
+           <h4 class="product-name"> Color:<strong style="font-size: 17px;">{{pro_color}}</strong></h4>
+           <h4 class="product-name"> Decsription:<strong style="font-size: 17px;">{{pro_desc}}</strong></h4>
+            <button class="primary-btn add-to-cart" (click)="onAddCart()"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+              <div class="pull-right">
+                <button class="main-btn icon-btn" (click)="onWishlist(pro_id)"><i class="fa fa-heart"></i></button>
+                <button class="main-btn icon-btn" (click)="oncompare(pro_id)"><i class="fa fa-exchange"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="margin-left: -150px">
+          <div class="product-tab">
+            <ul class="tab-nav">
+              <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+              <li><a data-toggle="tab" href="#tab1">Details</a></li>
+              <li><a data-toggle="tab" href="#tab2" (click)="onAdd()">Reviews (3)</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane fade in active">
+                <p>{{pro_desc}}
+                  </p>
+                </div>
+              <div id="tab2" class="tab-pane fade in"  *ngIf="flag">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="product-reviews" >
+                      <div class="single-review" *ngFor="let item of review_arr">
+                        <div class="review-heading">
+                          <div><a href="#"><i class="fa fa-user-o"></i> {{user_name1}}</a></div>
+                          <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
+                          <div class="review-rating pull-right">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o empty"></i>
+                          </div>
+                        </div>
+                        <div class="review-body">
+                          <p>{{item.review}}</p>
+                        </div>
+                      </div>
+
+
+                      <ul class="reviews-pages">
+                        <li class="active">1</li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h4 class="text-uppercase">Write Your Review</h4>
+                    <p>Your email address will not be published.</p>
+                    <form class="review-form" (ngSubmit)="addform(f)" #f="ngForm">
+                      <div class="form-group">
+                        <input class="input" type="text" placeholder="Your Name" name="user_name" [(ngModel)]="user_name1" [disabled]="true">
+                      </div>
+                      <div class="form-group">
+                        <input class="input" type="text" placeholder="Email Address" name="email_id" [(ngModel)]="email_id" [disabled]="true">
+                      </div>
+                      <div class="form-group">
+                        <textarea class="input" placeholder="Your review" name="review" [(ngModel)]="review"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-rating">
+                          <strong class="text-uppercase">Your Rating: </strong>
+                          <div class="stars">
+                            <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="primary-btn" type="submit" (click)="onAddReview()">Submit</button>
+                    </form>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+<div class="section">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="section-title">
+          <h2 class="title">SIMILAR PRODUCT</h2>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6 col-xs-6" *ngFor="let item of pro_cat_arr;let i=index">
+        <div class="product product-single" >
+          <div class="product-thumb" >
+            <button class="main-btn quick-view" (click)="ondet(item)"><i class="fa fa-search-plus"></i> Quick view</button>
+
+            <img src="{{'http://localhost:3000/images/product/'+item.pro_img}}"  alt="" (click)="onclick(item)" height="300px" width="300px">
+          </div>
+          <div class="product-body">
+            <h3 class="product-price">{{item.pro_price}}</h3>
+            <div class="product-rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o empty"></i>
+            </div>
+            <h2 class="product-name"><a href="#">{{item.pro_name}}</a></h2>
+            <div class="product-btns">
+              <button class="main-btn icon-btn" (click)="onwishlist(item)"><i class="fa fa-heart"></i></button>
+              <button class="main-btn icon-btn" (click)="oncompare(item)"><i class="fa fa-exchange"></i></button>
+              <button class="primary-btn add-to-cart" (click)="onAddToCart(item)"><i class="fa fa-shopping-cart" ></i> Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>

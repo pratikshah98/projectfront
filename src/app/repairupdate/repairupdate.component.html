@@ -1,0 +1,64 @@
+<p><b style="font-size: 40px; margin-left: 300px;" > Update Product Management</b></p>
+<div class="container">
+  <form (ngSubmit)="addform(f)" #f="ngForm">
+
+    <div class="container">
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Model Name" name="model_no" [(ngModel)]="model_no" id="model_no" required  #modelno="ngModel" [disabled]="true">
+        </mat-form-field>
+          <div [hidden]="modelno.valid ||  modelno.untouched">
+           <div [hidden]="!modelno?.errors?.required"></div>
+             <mat-error>Model Name is required</mat-error>
+          </div>
+
+          <div>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Problem Detail" name="problem_spec" [(ngModel)]="problem_spec" id="problem_spec" required  #problemspec="ngModel" [disabled]="true">
+                </mat-form-field>
+                  <div [hidden]="modelno.valid ||  modelno.untouched">
+                   <div [hidden]="!modelno?.errors?.required"></div>
+                     <mat-error>Model Name is required</mat-error>
+                  </div>
+                </div>
+            <div>
+          <mat-form-field class="example-full-width">
+           <mat-select placeholder="Category Name" [(ngModel)]="fk_cat_id" name="fk_cat_id" [disabled]="true">
+             <mat-option *ngFor="let item of cat_arr" [value]="item.cat_id">{{item.cat_name}}</mat-option>
+           </mat-select>
+           <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+         </mat-form-field>
+        </div>
+        <div>
+         <mat-form-field class="example-full-width">
+          <mat-select placeholder="User Name" [(ngModel)]="fk_user_id" name="fk_user_id" [disabled]="true">
+            <mat-option *ngFor="let item of user_arr" [value]="item.user_id">{{item.user_name}}</mat-option>
+          </mat-select>
+          <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter the Amount" name="repair_amt" [(ngModel)]="repair_amt" id="repair_amt" required  #repairamt="ngModel">
+            </mat-form-field>
+              <div [hidden]="repairamt.valid ||  repairamt.untouched">
+               <div [hidden]="!repairamt?.errors?.required"></div>
+                 <mat-error>Model Name is required</mat-error>
+              </div>
+           </div>
+           <div>
+              <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="repair_date" [(ngModel)]="repair_date" id="repair_date" required  #repairdate="ngModel">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+                <div [hidden]="repairdate.valid ||  repairdate.untouched">
+                 <div [hidden]="!repairdate?.errors?.required"></div>
+                   <mat-error>Date is required</mat-error>
+                </div>
+             </div>
+         <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" (click)="onUpdateAmt()">Update</button>
+         <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+
+
+  </div>

@@ -1,0 +1,161 @@
+	<div id="home" >
+		<div class="container" style="margin-left:60px">
+			<div class="home-wrap">
+				<div id="home-slick">
+					<div class="banner banner-1" style="width:120%;">
+              <div >
+
+                  <slideshow
+                  [minHeight]="'600px'"
+                  [autoPlay]="true"
+                  [showArrows]="false"
+                  [imageUrls]="imageUrlArray"
+                  [lazyLoad]="imageUrlArray?.length > 1"
+                  [autoPlayWaitForLazyLoad]="true"
+
+                  >
+                </slideshow>
+                </div>
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" style="margin-left:-180px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-6" >
+					<a class="banner banner-1" href="#">
+						<img src="../../assets/banner10.jpg" alt="" style="height: 250px;">
+						<div class="banner-caption text-center">
+              <button class="primary-btn" (click)="onshop()">Shop Now</button>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<a class="banner banner-1">
+						<img src="../../assets/banner11.jpg" alt="" style="height: 250px;">
+						<div class="banner-caption text-center">
+              <button class="primary-btn" (click)="onshop()">Shop Now</button>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+					<a class="banner banner-1" href="#">
+						<img src="../../assets/banner12.jpg" alt="" style="height: 250px;">
+						<div class="banner-caption text-center">
+              <button class="primary-btn" (click)="onshop()">Shop Now</button>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section"  >
+	<div class="container">
+			<div class="row">
+	<div class="section section-grey" style="margin-left:-80px;height: 400px; width:00px;">
+		<div class="container" style="margin-left:-14px;margin-top:-40px;">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="banner banner-1">
+						<img src="../../assets/banner13.jpg" alt="" style="height: 400px;">
+						<div class="banner-caption text-center">
+							<button class="primary-btn" (click)="onshop()">Shop Now</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<a class="banner banner-1" href="#">
+						<img src="../../assets/banner11.jpg" alt="" style="height: 200px;">
+						<div class="banner-caption text-center">
+              <button class="primary-btn" (click)="onshop()">Shop Now</button>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<a class="banner banner-1" href="#">
+						<img src="../../assets/banner12.jpg" alt="" style="height: 200px;">
+						<div class="banner-caption text-center">
+              <button class="primary-btn" (click)="onshop()">Shop Now</button>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" style="margin-left:-180px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title">
+						<h2 class="title">TOP SELLING PRODUCT</h2>
+					</div>
+        </div>
+				<div class="col-md-3 col-sm-6 col-xs-6" *ngFor="let item of sellpro_arr">
+					<div class="product product-single" >
+						<div class="product-thumb">
+                    <div class="product-label">
+                        <span>New</span>
+
+                      </div>
+          <button class="main-btn quick-view" (click)="ondet(item)"><i class="fa fa-search-plus"></i> Quick view</button>
+              <img src="{{'http://localhost:3000/images/product/'+item.pro_img}}" alt="" height="250px" width="250px">
+            </div>
+						<div class="product-body">
+							<h3 class="product-price">{{item.pro_price}}</h3>
+							<div class="product-rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o empty"></i>
+							</div>
+							<h2 class="product-name"><a href="#">{{item.pro_name}}</a></h2>
+							<div class="product-btns">
+								<button class="main-btn icon-btn" (click)="onwishlist(item)"><i class="fa fa-heart"></i></button>
+								<button class="main-btn icon-btn" (click)="oncompare(item)"><i class="fa fa-exchange"></i></button>
+								<button class="primary-btn add-to-cart" (click)="ondet(item)"><i class="fa fa-shopping-cart"></i> DETAIL</button>
+							</div>
+						</div>
+					</div>
+				</div>
+      <div class="row">
+				<div class="col-md-12">
+					<div class="section-title">
+						<h2 class="title">Picked For You</h2>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6" *ngFor="let item of pro_arr1;let i=index">
+					<div class="product product-single">
+						<div class="product-thumb">
+                <div class="product-label">
+                    <span>New</span>
+
+                  </div>
+
+							<button class="main-btn quick-view" (click)="ondet(item)"><i class="fa fa-search-plus"></i> Quick view</button>
+              <img src="{{'http://localhost:3000/images/product/'+item.pro_img}}" alt="" height="300px" width="300px">
+            </div>
+						<div class="product-body">
+							<h3 class="product-price">{{item.pro_price}}</h3>
+							<div class="product-rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o empty"></i>
+							</div>
+							<h2 class="product-name"><a href="#">{{item.pro_name}}</a></h2>
+							<div class="product-btns">
+
+                <button class="main-btn icon-btn" (click)="onwishlist(item)"><i class="fa fa-heart"></i></button>
+								<button class="main-btn icon-btn" (click)="oncompare(item)"><i class="fa fa-exchange" ></i></button>
+								<button class="primary-btn add-to-cart" (click)="ondet(item)"><i class="fa fa-shopping-cart" ></i> Detail</button>
+              </div>
+						</div>
+					</div>
+				</div>
+      </div>
+    </div>
+  </div>

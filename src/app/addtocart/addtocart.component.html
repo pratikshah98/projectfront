@@ -1,0 +1,67 @@
+<div class="col-md-12" >
+  <div class="order-summary clearfix">
+    <div class="section-title">
+      <h3 class="title">Order Review</h3>
+    </div>
+    <table class="shopping-cart-table table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th></th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Total</th>
+          <th class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartpro_arr,let i=index,let item1 of no_arr2">
+          <td class="thumb"><img src="{{'http://localhost:3000/images/product/'+item.pro_img}}" alt="no image" height="50px" width="50px"></td>
+          <td class="details">
+            <a href="#">{{item.pro_name}}</a>
+          </td>
+          <td class="price text-center"><strong>{{item.pro_price}}</strong>
+          <td class="qty text-center" >
+                  <input class="input" type="number" value="1" min="1" max="item1" name="qty[i]" [(ngModel)]="qty[i]" [attr.max]="no_arr2[i]"   (change)="onchange(item1,i)">
+
+            <!-- <select [(ngModel)]="qty[i]" (change)="onchange(item,i)" >
+
+              <option *ngFor="let item of noarr ">
+                  {{item}}
+                </option>
+              </select>-->
+          </td>
+          <td class="total text-center"><strong class="primary-color">{{tot[i]}}</strong></td>
+          <td class="text-right">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true" (click)="ondelete(item,i)"></span>
+  </td>
+        </tr>
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <th class="empty" colspan="3"></th>
+          <th>SUBTOTAL</th>
+          <th colspan="2" class="sub-total">{{total}}</th>
+        </tr>
+        <tr>
+          <th class="empty" colspan="3"></th>
+          <th>SHIPING</th>
+          <td colspan="2">Free Shipping</td>
+        </tr>
+        <tr>
+          <th class="empty" colspan="3"></th>
+          <th>TOTAL</th>
+          <th colspan="2" class="total">{{total}}</th>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="pull-right">
+      <button class="primary-btn" (click)="OnPlaceOrder()">Place Order</button>
+    </div>
+  </div>
+
+</div>
+
+
+
